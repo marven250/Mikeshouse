@@ -7,7 +7,7 @@ describe('Node.js Server API', () => {
     it('should return server running message', async () => {
       const res = await request(app).get('/');
 
-      expect(res.statusCode).toBe(200);
+      expect(res.statusCode).toBe(201);
       expect(res.text).toBe('Node.js server is running 🚀');
     });
   });
@@ -16,7 +16,7 @@ describe('Node.js Server API', () => {
     it('should return hello message', async () => {
       const res = await request(app).get('/api/hello');
 
-      expect(res.statusCode).toBe(200);
+      expect(res.statusCode).toBe(201);
       expect(res.body).toEqual({
         message: 'Hello from the server!'
       });
@@ -32,7 +32,7 @@ describe('Node.js Server API', () => {
         .send(payload)
         .set('Content-Type', 'application/json');
 
-      expect(res.statusCode).toBe(200);
+      expect(res.statusCode).toBe(201);
       expect(res.body.status).toBe('success');
       expect(res.body.received).toEqual(payload);
     });
